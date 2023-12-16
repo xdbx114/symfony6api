@@ -1,0 +1,82 @@
+{# templates/lista.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <style>
+        /* Stylizacja całej strony */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Stylizacja kontenera listy */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Stylizacja nagłówka */
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Stylizacja pojedynczego posta */
+        .post {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Stylizacja tytułu posta */
+        .post h2 {
+            font-size: 20px;
+            color: #333;
+        }
+
+        /* Stylizacja treści posta */
+        .post p {
+            font-size: 16px;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* Stylizacja linku do usuwania */
+        .post a {
+            text-decoration: none;
+            color: #f00;
+            font-weight: bold;
+            margin-left: 10px;
+        }
+
+        .post a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <div class="container">
+        <h1>Lista Postów</h1>
+        <hr>
+
+        {% for post in posts %}
+            <div class="post">
+                <h2>{{ post.title }}</h2>
+                <h2>{{ post.firstName }} {{ post.lastName }}</h2>
+                <p>{{ post.body }}</p>
+                <!-- Link do usunięcia -->
+                <a href="{{ path('delete_post', {'id': post.id}) }}" class="btn btn-danger">Usuń</a>
+            </div>
+            <hr>
+        {% endfor %}
+    </div>
+{% endblock %}
