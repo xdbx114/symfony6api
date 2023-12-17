@@ -40,9 +40,6 @@ jobs:
           name: php-app
           path: release.zip
 
-      - name: Update nginx config file and restart nginx :)
-        run: ./deploy.sh
-
   deploy:
     runs-on: ubuntu-latest
     needs: build
