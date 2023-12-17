@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Witaj!{% endblock %}</title>
+        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+        {% block stylesheets %}
+        <style>
+            body {
+                text-align: center; 
+                padding-top: 50px;
+                font-family: Arial, sans-serif;
+            }
+
+            .btn {
+                display: inline-block;
+                padding: 15px 30px; 
+                text-align: center;
+                border: none; 
+                background-color: #007bff; 
+                color: white; 
+                text-decoration: none;
+                border-radius: 5px; 
+                margin: 10px; 
+                font-size: 16px; 
+                transition: background-color 0.3s; 
+            }
+
+            .btn:hover {
+                background-color: #0056b3; 
+            }
+        </style>
+        {% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <div>
+                <a href="/lista" class="btn">Lista</a>
+                <a href="/login" class="btn">Login</a>
+                <a href="/register" class="btn">Register</a>
+                <a href="/posts" class="btn">Posts</a>
+            </div>
+        {% endblock %}
+    </body>
+</html>

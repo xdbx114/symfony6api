@@ -66,6 +66,13 @@
     </style>
     <div class="container">
         <h1>Lista Postów</h1>
+        {% if app.user %}
+        <div class="logout">
+        <div class="mb-3">
+            Zalogowany jako {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Wyloguj się</a>
+        </div>
+        </div>
+        {% endif %}
         <hr>
 
         {% for post in posts %}

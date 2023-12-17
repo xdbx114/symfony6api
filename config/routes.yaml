@@ -8,3 +8,7 @@ app_post:
     path: '/posts'
     controller: 'App\Controller\PostController::getPosts'
     methods: ['GET']
+
+homepage:
+    path: '/'
+    controller: 'App\Controller\DefaultController::index'

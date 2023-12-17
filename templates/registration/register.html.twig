@@ -2,18 +2,88 @@
 
 {% block title %}Register{% endblock %}
 
+{% block stylesheets %}
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    form {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        margin: auto;
+    }
+
+    form h1 {
+        text-align: center;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    form div {
+        margin-bottom: 10px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    input[type="checkbox"] {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="checkbox"] {
+        width: auto;
+        margin-top: 5px;
+    }
+
+    .btn {
+        background-color: #0056b3;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .btn:hover {
+        background-color: #004494;
+    }
+</style>
+
+{% endblock %}
+
 {% block body %}
-    <h1>Register</h1>
 
     {{ form_errors(registrationForm) }}
 
     {{ form_start(registrationForm) }}
+    <h1>Rejestracja</h1>
         {{ form_row(registrationForm.username) }}
         {{ form_row(registrationForm.plainPassword, {
             label: 'Password'
         }) }}
         {{ form_row(registrationForm.agreeTerms) }}
 
-        <button type="submit" class="btn">Register</button>
+        <button type="submit" class="btn">Zarejestruj</button>
     {{ form_end(registrationForm) }}
 {% endblock %}
