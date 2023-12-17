@@ -46,6 +46,8 @@ jobs:
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    container:
+      options: --user root
     
     steps:
       - name: Download artifact from build job
@@ -66,7 +68,7 @@ jobs:
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0E3B7CB1DC7F4FEBB0132A5064AF7927 }}
 
       - name: 'Set nginx config'
-        run: sudo cp nginx.default /etc/nginx/sites-available/default
+        run: cp nginx.default /etc/nginx/sites-available/default
 
       - name: 'Restart nginx'
-        run: sudo service nginx restart
+        run: service nginx restart
