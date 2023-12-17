@@ -11,7 +11,7 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\HttpClient\HttpClient;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Entity\Posts;
+use App\Entity\Post;
 
 #[AsCommand(
     name: 'getdata',
@@ -44,7 +44,7 @@ class GetdataCommand extends Command
         $posts = $postsResponse->toArray();
         $users = $usersResponse->toArray();
         foreach ($posts as $postData) {
-            $post = new Posts();
+            $post = new Post();
             $post->setTitle($postData['title']);
             $post->setBody($postData['body']);
             $userId = $postData['userId'];

@@ -7,7 +7,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Entity\Posts;
+use App\Entity\Post;
 
 
 class PostController extends AbstractController
@@ -15,7 +15,7 @@ class PostController extends AbstractController
     // #[Route('/post', name: 'app_post')]
     public function getPosts(EntityManagerInterface $entityManager): JsonResponse
     {
-        $posts = $entityManager->getRepository(Posts::class)->findAll();
+        $posts = $entityManager->getRepository(Post::class)->findAll();
 
         $data = [];
         foreach ($posts as $post) {

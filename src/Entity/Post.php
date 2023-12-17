@@ -2,12 +2,21 @@
 
 namespace App\Entity;
 
-use App\Repository\PostsRepository;
+use App\Repository\PostRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use ApiPlatform\Metadata\ApiResource;
+use ApiPlatform\Metadata\Get;
+use ApiPlatform\Metadata\GetCollection;
 
-#[ORM\Entity(repositoryClass: PostsRepository::class)]
-class Posts
+#[ORM\Entity(repositoryClass: PostRepository::class)]
+#[ApiResource(
+    operations: [
+        new Get(),
+        new GetCollection()
+    ]
+)]
+class Post
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

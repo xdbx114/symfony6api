@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Doctrine\ORM\EntityManagerInterface;
-use App\Entity\Posts;
+use App\Entity\Post;
 use Symfony\Component\HttpFoundation\Request;
 
 class ListController extends AbstractController
@@ -15,7 +15,7 @@ class ListController extends AbstractController
     public function index(EntityManagerInterface $entityManager): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
-        $posts = $entityManager->getRepository(Posts::class)->findAll();
+        $posts = $entityManager->getRepository(Post::class)->findAll();
     
         return $this->render('lista/index.html.twig', [
             'posts' => $posts,
@@ -26,7 +26,7 @@ class ListController extends AbstractController
     public function delete(Request $request, EntityManagerInterface $entityManager, $id): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
-        $post = $entityManager->getRepository(Posts::class)->find($id);
+        $post = $entityManager->getRepository(Post::class)->find($id);
 
         if ($post) {
             $entityManager->remove($post);
