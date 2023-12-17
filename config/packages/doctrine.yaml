@@ -6,7 +6,7 @@ doctrine:
         # either here or in the DATABASE_URL env var (see .env file)
         #server_version: '15'
         options:
-            1009: '%kernel.project_dir%/bin/DigiCertGlobalRootG2.crt.pem' # PDO::MYSQL_ATTR_SSL_CA
+            1009: '%kernel.project_dir%/bin/DigiCertGlobalRootCA.crt.pem' # PDO::MYSQL_ATTR_SSL_CA
             1014: true # PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT
             1012: true # PDO::MYSQL_ATTR_SSL_KEY
             1013: true # PDO::MYSQL_ATTR_SSL_CERT
