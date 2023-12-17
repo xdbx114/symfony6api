@@ -64,3 +64,6 @@ jobs:
           slot-name: 'Production'
           package: .
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0E3B7CB1DC7F4FEBB0132A5064AF7927 }}
+
+      - name: 'Set nginx config'
+        run: cp nginx.default /etc/nginx/sites-available/default
