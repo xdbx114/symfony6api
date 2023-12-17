@@ -7,7 +7,7 @@ doctrine:
         #server_version: '15'
         options:
             PDO::MYSQL_ATTR_SSL_CA: '%kernel.project_dir%/bin/DigiCertGlobalRootCA.crt.pem'
-            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT: false
+            PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT: true
         profiling_collect_backtrace: '%kernel.debug%'
     orm:
         auto_generate_proxy_classes: true
